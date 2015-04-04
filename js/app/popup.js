@@ -1,35 +1,51 @@
-﻿// myApp.service('pageInfoService', function() {
-//     this.getInfo = function(callback) {
-//         var model = {};
+myApp.controller("PageController", ['$scope', '$interval', function($scope, $interval) {
+    this.timer = "00:00:00";
 
-//         chrome.tabs.query({'active': true},
-//         function (tabs) {
-//             if (tabs.length > 0)
-//             {
-//                 model.title = tabs[0].title;
-//                 model.url = tabs[0].url;
+	var Timer = function (controller){
+        var _counter = 0,
+            _controller = controller,
+            displayTime = function (){
+                _controller.timer = moment().hour(0).minute(0).second(_counter++).format('HH:mm:ss');
+            },
+            _isClockRunning = false;
 
-//                 chrome.tabs.sendMessage(tabs[0].id, { 'action': 'PageInfo' }, function (response) {
-//                     model.pageInfos = response;
-//                     callback(model);
-//                 });
-//             }
+        this.startClock = function (){
+            if (_isClockRunning === false){
+                displayTime();
+                _isClockRunning = $interval(function(){
+                    displayTime();
+                }, 1000);
+            }      
+        };
 
-//         });
-//     };
-// });
-
-myApp.controller("PageController", function ($scope) {
-    $scope.message = "STEPS";
-
-    // pageInfoService.getInfo(function (info) {
-    //     $scope.title = info.title;
-    //     $scope.url = info.url;
-    //     $scope.pageInfos = info.pageInfos;
+        this.pauseClock = function (){
+            $interval.cancel(_isClockRunning);
+            _isClockRunning = false;
+        };
         
-    //     $scope.$apply();
-    // });
-});
+        this.stopClock = function (){
+            $interval.cancel(_isClockRunning);
+            _isClockRunning = false;
+            _counter = 0;
+        };
 
+        this.resetClock = function (){
+            this.stopClock();
+            displayTime();
+        };
 
+        this.toggleClock = function (){
+            if (_isClockRunning === false){
+                this.startClock();
+            } else {
+                this.pauseClock();
+            }
+        };
+    };
 
+    Timer = new Timer(this);
+    this.startClock = Timer.toggleClock.bind(Timer);
+    this.pauseClock = Timer.pauseClock.bind(Timer);
+    this.stopClock = Timer.stopClock.bind(Timer);
+    this.resetClock = Timer.resetClock.bind(Timer);
+}]);

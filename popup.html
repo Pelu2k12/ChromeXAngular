@@ -4,14 +4,25 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main.css">
 
-        <script type="text/javascript" src="js/lib/angular.min.js"></script>
+        <script type="text/javascript" src="js/lib/moment.js"></script>
+        <script type="text/javascript" src="js/lib/angular.js"></script>
         <script type="text/javascript" src="js/app/app.js"></script>
         <script type="text/javascript" src="js/app/popup.js"></script>
     </head>
     <body id="popup">
-        <div ng-controller="PageController">
+        <div ng-controller="PageController as pCntr">
             <div class="container">
-                {{message}}
+                <div class="row">
+                    {{pCntr.timer}}
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-success" data-ng-click="pCntr.startClock()">Play</button>
+                    <button type="button" class="btn btn-default" data-ng-click="pCntr.pauseClock()">Pause</button>
+                    <button type="button" class="btn btn-danger" data-ng-click="pCntr.stopClock()">Stop</button>
+                    <button type="button" class="btn btn-default" data-ng-click="pCntr.resetClock()">Reset</button>
+                    <button type="button" class="btn btn-default" data-ng-click="pCntr.toggleClock()">Play</button>
+                </div>
+                
             </div>
         </div>
     </body>
