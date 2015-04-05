@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html ng-app="TaskTimer" ng-csp>
+    <head>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script type="text/javascript" src="js/lib/moment.js"></script>
+        <script type="text/javascript" src="js/lib/angular.js"></script>
+        <script type="text/javascript" src="js/app/app.js"></script>
+        <script type="text/javascript" src="js/app/popup.js"></script>
+        <script type="text/javascript" src="js/app/timer.js"></script>
+    </head>
+    <body id="popup">
+        <div ng-controller="PageController as pCntr">
+            <div class='row' id='timerDiv'>
+                <timer></timer>
+                <timer></timer>
+            </div>
+            <button type="button" class="btn btn-primary" data-ng-click="pCntr.addTimer()">add Timer</button>
+        </div>
+    </body>
+</html>
