@@ -1,4 +1,4 @@
-﻿var myApp = angular.module('timer', []).directive('timer', ["$interval", function ($interval){
+var myApp = angular.module('timer', []).directive('timer', ["$interval", function ($interval){
 	var TimerPrototype = function (controller){
         var _counter = 1,
             _controller = controller,
@@ -53,7 +53,6 @@
         controllerAs: "timerCtrl",
         scope: {timerScope: '=id'},
         controller: function ($element){
-		    
 		    var Timer = new TimerPrototype(this);
 
 		    this.toggleClock = function (){
@@ -68,6 +67,11 @@
 		    		this.payButton = 'Play';
 		    	}
 		    	Timer.stopClock();
+		    };
+            this.deleteClock = function (){
+		    	Timer.stopClock();
+                Timer = null;
+                $element.remove();
 		    };
 		    this.resetClock = Timer.resetClock.bind(Timer);
 		}
