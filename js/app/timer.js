@@ -14,12 +14,15 @@
                     _lapCounter++;
                 },
                 createLapNode = function (time){
-                    var lapId = _controller.lapsDivId + "_" + _lapCounterId;
+                    var lapId = _controller.lapsDivId + "_" + _lapCounterId,
+                        parent = document.getElementById(_controller.lapsDivId);
                     _controller[lapId] = converCounterToTime(time);
-                    
-                    ng.element(document.getElementById(_controller.lapsDivId)).append(
+                                        
+                    ng.element(parent).append(
                         $compile("<div>" + _controller[lapId] + "</div>")(scope)
                     );
+                    parent.scrollTop = parent.scrollHeight;
+                    
                     return lapId;
                 },
                 removeLapNodes = function (){
