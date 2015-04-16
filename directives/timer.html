@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
-        <div></div>
-        <div>{{timerCtrl.timer || '00:00:00'}}</div>
+        <div id="{{timerCtrl.lapsDivId}}"></div>
+        <h3>{{timerCtrl.timer || '00:00:00'}}</h3>
         <button type="button" class="btn btn-success" data-ng-click="timerCtrl.toggleClock()">{{timerCtrl.payButton || 'Play'}}</button>
         <button type="button" class="btn btn-link" data-ng-click="timerCtrl.stopClock()">Stop</button> 
         <button type="button" class="btn btn-link" data-ng-click="timerCtrl.resetClock()">Reset</button>

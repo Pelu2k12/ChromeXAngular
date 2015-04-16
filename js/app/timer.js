@@ -1,15 +1,32 @@
 (function (ng){
-        var myApp = ng.module('timer', []).directive('timer', ["$interval", function ($interval){
-        var TimerPrototype = function (controller){
+        var myApp = ng.module('timer', []).directive('timer', ['$interval', '$compile', function ($interval, $compile){
+        var TimerPrototype = function (scope, controller){
             var _counter = 1,
+                _lapCounter = 1,
+                _lapCounterId = 1,
+                _isClockRunning = false,
                 _controller = controller,
                 displayTime = function (){
                     _controller.timer = moment().hour(0).minute(0).second(_counter++).format('HH:mm:ss');
+                    _controller[_controller.lapsDivId + "_" + _lapCounterId] = moment().hour(0).minute(0).second(_lapCounter++).format('HH:mm:ss');
                 },
-                _isClockRunning = false;
-
+                createLapNode = function (time){
+                    var lapId = _controller.lapsDivId + "_" + _lapCounterId;
+                    ng.element(document.getElementById(_controller.lapsDivId)).append(
+                        $compile("<div>{{timerCtrl." + lapId + " || '00:00:00'}}</div>")(scope)
+                    );
+                    return lapId;
+                },
+                removeLapNodes = function (){
+                    ng.element(document.getElementById(_controller.lapsDivId)).empty();
+                };
+            
+            this.identity = scope.timerScope;
+            _controller.lapsDivId = 'laps_' + this.identity;
+            
             this.startClock = function (){
-                // displayTime();
+                createLapNode();
+                displayTime();
                 _isClockRunning = $interval(function(){
                     displayTime();
                 }, 1000);
@@ -18,11 +35,13 @@
             this.pauseClock = function (){
                 $interval.cancel(_isClockRunning);
                 _isClockRunning = false;
+                
+                _lapCounter = 1;
+                _lapCounterId++;
             };
 
             this.stopClock = function (){
-                $interval.cancel(_isClockRunning);
-                _isClockRunning = false;
+                this.pauseClock();
                 _counter = 0;
             };
 
@@ -53,8 +72,8 @@
             templateUrl: 'directives/timer.html',
             controllerAs: "timerCtrl",
             scope: {timerScope: '=id'},
-            controller: function ($element){
-                var Timer = new TimerPrototype(this);
+            controller: function ($scope, $element){                
+                var Timer = new TimerPrototype($scope, this);
 
                 this.toggleClock = function (){
                     if (Timer.toggleClock() === false){
