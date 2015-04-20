@@ -84,11 +84,17 @@
                 var Timer = new TimerPrototype($scope, this);
 
                 this.toggleClock = function (){
+                    var buttonLabel = '';
                     if (Timer.toggleClock() === false){
                         this.payButton = 'Play';
+                        buttonLabel = '';
                     }else{
                         this.payButton = 'Pause';
+                        buttonLabel = 'ON';
                     }
+                    chrome.browserAction.setBadgeText({
+                        text: buttonLabel
+                    });
                 };
                 this.stopClock = function (){
                     if (Timer.toggleClock() === false){

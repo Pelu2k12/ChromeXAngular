@@ -1,0 +1,14 @@
+<form class="form-horizontal" id="newTimer" ng-show="pCntr.showNewTimerForm">
+    <div class="form-group">
+        <label>Project</label>
+        <input class="form-control" type="text" ng-model="pCntr.project" required ng-trim="true"/>
+    </div>
+    <div class="form-group">
+        <label>Task</label>
+        <input class="form-control" type="text" ng-model="pCntr.task" required ng-trim="true"/>
+    </div>
+    <div class="row">
+        <button type="button" class="btn btn-default" data-ng-click="pCntr.addTimer()">Create</button>
+        <button type="button" class="btn btn-default" data-ng-click="pCntr.addTimer()">Cancel</button>
+    </div>
+</form>

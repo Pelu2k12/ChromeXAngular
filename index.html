@@ -12,24 +12,15 @@
     </head>
     <body id="popup" class='container'>
         <div ng-controller="PageController as pCntr">
-            <form class="form-horizontal" id="newTimer">
-                <div class="form-group">
-                    <label>Project</label>
-                    <input class="form-control" type="text" ng-model="pCntr.project" required ng-trim="true"/>
-                </div>
-                <div class="form-group">
-                    <label>Task</label>
-                    <input class="form-control" type="text" ng-model="pCntr.task" required ng-trim="true"/>
-                </div>
-                <div class="row">
-                    <button type="button" class="btn btn-default" data-ng-click="pCntr.addTimer()">Add Timer</button>
-                    <button type="button" class="btn btn-default" data-ng-click="pCntr.addTimer()">Cancel</button>
-                </div>
-            </form>
+            <div class="row">
+                <button type="button" class="btn btn-default" data-ng-click="pCntr.showNewTimerForm()">New Timer</button>
+            </div>
+            <new-timer-form></new-timer-form>
             <div class='container' id='timerDiv'></div>
         </div>
         
         <script type="text/javascript" src="js/app/app.js"></script>
         <script type="text/javascript" src="js/app/timer.js"></script>
+        <script type="text/javascript" src="js/app/newTimerForm.js"></script>
     </body>
 </html>
