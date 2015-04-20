@@ -4,8 +4,8 @@
             <h3>{{timerCtrl.timer || '00:00:00'}}</h3>
         </div>
         <div class="col-xs-3">
-            <a class="btn btn-link" data-toggle="collapse" href="#collapseLaps" aria-expanded="false" aria-controls="collapseLaps">Details</a>
-            <div class="collapse" id="collapseLaps">
+            <a class="btn btn-link" data-toggle="collapse" href="{{'#collapseLaps_' + timerCtrl.lapsDivId}}" aria-expanded="false" aria-controls="{{'collapseLaps_' + timerCtrl.lapsDivId}}">Details</a>
+            <div class="collapse" id="{{'collapseLaps_' + timerCtrl.lapsDivId}}">
                 <div class="well">
                     <small id="{{timerCtrl.lapsDivId}}"></small>  
                 </div>
