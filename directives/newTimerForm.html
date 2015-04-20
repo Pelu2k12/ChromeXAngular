@@ -1,4 +1,4 @@
-<form class="form-horizontal" id="newTimer" ng-show="pCntr.showNewTimerForm">
+<form class="form-horizontal" id="newTimer" ng-show="showNewTimerForm">
     <div class="form-group">
         <label>Project</label>
         <input class="form-control" type="text" ng-model="pCntr.project" required ng-trim="true"/>
@@ -9,6 +9,6 @@
     </div>
     <div class="row">
         <button type="button" class="btn btn-default" data-ng-click="pCntr.addTimer()">Create</button>
-        <button type="button" class="btn btn-default" data-ng-click="pCntr.addTimer()">Cancel</button>
+        <button type="button" class="btn btn-default" >Cancel</button>
     </div>
 </form>
