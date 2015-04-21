@@ -5,7 +5,7 @@
             templateUrl: 'directives/newTimerForm.html',
             controllerAs: "newTimerFormCtrl",
             controller: function ($scope){
-                $scope.showNewTimerForm = false;
+                $scope.isNewFormVisible = false;
             }
         };
     });
