@@ -80,7 +80,8 @@
             templateUrl: 'directives/timer.html',
             controllerAs: "timerCtrl",
             scope: {timerScope: '=id'},
-            controller: function ($scope, $element){                
+            controller: function ($scope, $element){
+                this.project = $scope.project;
                 var Timer = new TimerPrototype($scope, this);
 
                 this.toggleClock = function (){
