@@ -5,12 +5,12 @@
             templateUrl: 'directives/newTimerForm.html',
             controllerAs: "newTimerFormCtrl",
             controller: function ($scope, $compile, $element){
+                var self = this;
                 $scope.isNewFormVisible = false;
-                
-                this.addTimer = function (){
+                self.addTimer = function (){
                     $scope.counter++;
                     ng.element(document.getElementById('timerDiv')).append(
-                        $compile("<timer id='"+$scope.counter+"'>hello here</timer>")($scope)
+                        $compile("<timer test='d1234' id='"+$scope.counter+"' project='" + self.project + "' task='" + self.task + "'>hello here</timer>")($scope)
                     );
                 };
             }

@@ -1,11 +1,11 @@
 <form class="form-horizontal" id="newTimer" ng-show="isNewFormVisible || 0">
     <div class="form-group">
         <label>Project</label>
-        <input class="form-control" type="text" ng-model="pCntr.project" required ng-trim="true"/>
+        <input class="form-control" type="text" ng-model="newTimerFormCtrl.project" required ng-trim="true"/>
     </div>
     <div class="form-group">
         <label>Task</label>
-        <input class="form-control" type="text" ng-model="pCntr.task" required ng-trim="true"/>
+        <input class="form-control" type="text" ng-model="newTimerFormCtrl.task" required ng-trim="true"/>
     </div>
     <div class="row">
         <button type="button" class="btn btn-default" data-ng-click="newTimerFormCtrl.addTimer()">Create</button>

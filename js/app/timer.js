@@ -28,8 +28,7 @@
                 removeLapNodes = function (){
                     ng.element(document.getElementById(_controller.lapsDivId)).empty();
                 };
-            
-            this.identity = scope.timerScope;
+            this.identity = scope.id;
             _controller.lapsDivId = 'laps_' + this.identity;
             
             this.startClock = function (){
@@ -79,9 +78,17 @@
             restrict: "E",
             templateUrl: 'directives/timer.html',
             controllerAs: "timerCtrl",
-            scope: {timerScope: '=id'},
+            scope: {
+                id: '=',
+                project: '@',
+                task: '@'
+            },
             controller: function ($scope, $element){
+                console.log($scope.id);
+                console.log($scope.project);
                 this.project = $scope.project;
+                this.task = $scope.task;
+                
                 var Timer = new TimerPrototype($scope, this);
 
                 this.toggleClock = function (){
