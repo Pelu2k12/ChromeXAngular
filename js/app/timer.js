@@ -84,8 +84,6 @@
                 task: '@'
             },
             controller: function ($scope, $element){
-                console.log($scope.id);
-                console.log($scope.project);
                 this.project = $scope.project;
                 this.task = $scope.task;
                 

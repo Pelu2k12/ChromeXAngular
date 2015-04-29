@@ -1,12 +1,14 @@
-<div class="row" style="background-color: #ddd;">
+<div class="row timer-container">
     <div class="row">
         <div class="col-xs-3">
             <h4>{{timerCtrl.task}}</h4>
             <small>{{timerCtrl.project}}</small>
+        </div>
+        <div class="col-xs-5 text-center">
             <h3>{{timerCtrl.timer || '00:00:00'}}</h3>
         </div>
         <div class="col-xs-3">
-            <a class="btn btn-link" data-toggle="collapse" href="{{'#collapseLaps_' + timerCtrl.lapsDivId}}" aria-expanded="false" aria-controls="{{'collapseLaps_' + timerCtrl.lapsDivId}}">Details</a>
+            <a class="btn btn-link text-right" data-toggle="collapse" href="{{'#collapseLaps_' + timerCtrl.lapsDivId}}" aria-expanded="false" aria-controls="{{'collapseLaps_' + timerCtrl.lapsDivId}}">Details</a>
             <div class="collapse" id="{{'collapseLaps_' + timerCtrl.lapsDivId}}">
                 <div class="well">
                     <small id="{{timerCtrl.lapsDivId}}"></small>  
