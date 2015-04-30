@@ -92,10 +92,10 @@
                 this.toggleClock = function (){
                     var buttonLabel = '';
                     if (Timer.toggleClock() === false){
-                        this.payButton = 'Play';
+                        this.payButton = '>';
                         buttonLabel = '';
                     }else{
-                        this.payButton = 'Pause';
+                        this.payButton = '||';
                         buttonLabel = 'ON';
                     }
                     chrome.browserAction.setBadgeText({
@@ -104,7 +104,7 @@
                 };
                 this.stopClock = function (){
                     if (Timer.toggleClock() === false){
-                        this.payButton = 'Play';
+                        this.payButton = '>';
                     }
                     Timer.stopClock();
                 };

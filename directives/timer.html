@@ -1,14 +1,16 @@
-<div class="row timer-container">
-    <div class="row">
-        <div class="col-xs-3">
-            <h4>{{timerCtrl.task}}</h4>
-            <small>{{timerCtrl.project}}</small>
-        </div>
-        <div class="col-xs-5 text-center">
-            <h3>{{timerCtrl.timer || '00:00:00'}}</h3>
-        </div>
-        <div class="col-xs-3">
-            <a class="btn btn-link text-right" data-toggle="collapse" href="{{'#collapseLaps_' + timerCtrl.lapsDivId}}" aria-expanded="false" aria-controls="{{'collapseLaps_' + timerCtrl.lapsDivId}}">Details</a>
+<div class="row">
+    <div class="col-xs-3">
+        <h4>{{timerCtrl.task}}</h4>
+        <small>{{timerCtrl.project}}</small>
+    </div>
+    <div class="col-xs-6 text-center">
+        <h3>{{timerCtrl.timer || '00:00:00'}}</h3>
+    </div>
+    <div class="col-xs-3">
+        <div class="row text-right">
+            <a class="btn btn-link" data-toggle="collapse" href="{{'#collapseLaps_' + timerCtrl.lapsDivId}}" 
+               aria-expanded="false" aria-controls="{{'collapseLaps_' + timerCtrl.lapsDivId}}">Details</a>
+
             <div class="collapse" id="{{'collapseLaps_' + timerCtrl.lapsDivId}}">
                 <div class="well">
                     <small id="{{timerCtrl.lapsDivId}}"></small>  
@@ -16,8 +18,8 @@
             </div>          
         </div>
     </div>
-    <button type="button" class="btn btn-success" data-ng-click="timerCtrl.toggleClock()">{{timerCtrl.payButton || 'Play'}}</button>
-    <button type="button" class="btn btn-link" data-ng-click="timerCtrl.stopClock()">Stop</button> 
-    <button type="button" class="btn btn-link" data-ng-click="timerCtrl.resetClock()">Reset</button>
-    <button type="button" class="btn btn-link" data-ng-click="timerCtrl.deleteClock()">Delete</button>
 </div>
+<button type="button" class="btn btn-success" data-ng-click="timerCtrl.toggleClock()">{{timerCtrl.payButton || '>'}}</button>
+<button type="button" class="btn btn-link" data-ng-click="timerCtrl.stopClock()">Stop</button> 
+<button type="button" class="btn btn-link" data-ng-click="timerCtrl.resetClock()">Reset</button>
+<button type="button" class="btn btn-link" data-ng-click="timerCtrl.deleteClock()">Delete</button>
