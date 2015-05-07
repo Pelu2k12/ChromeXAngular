@@ -6,11 +6,13 @@
             controllerAs: "newTimerFormCtrl",
             controller: function ($scope, $compile, $element){
                 var self = this;
+                debugger
                 $scope.isNewFormVisible = false;
+                // Button click event
                 self.addTimer = function (){
                     $scope.counter++;
                     ng.element(document.getElementById('timerDiv')).append(
-                        $compile("<timer test='d1234' id='"+$scope.counter+"' project='" + self.project + "' task='" + self.task + "'>hello here</timer>")($scope)
+                        $compile("<timer id='"+$scope.counter+"' project='" + self.project + "' task='" + self.task + "'></timer>")($scope)
                     );
                 };
             }

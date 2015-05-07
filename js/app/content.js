@@ -11,7 +11,7 @@
 
 //         $('a').each(function() {
 //             var pageInfo = {};
-            
+
 //             var href = $(this).attr('href');
 
 //             if (href != null && href.indexOf("http") == 0)

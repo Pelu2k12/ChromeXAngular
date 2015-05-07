@@ -8,18 +8,18 @@
     </div>
     <div class="col-xs-3">
         <div class="row text-right">
-            <a class="btn btn-link" data-toggle="collapse" href="{{'#collapseLaps_' + timerCtrl.lapsDivId}}" 
+            <a class="btn btn-link" data-toggle="collapse" href="{{'#collapseLaps_' + timerCtrl.lapsDivId}}"
                aria-expanded="false" aria-controls="{{'collapseLaps_' + timerCtrl.lapsDivId}}">Details</a>
 
             <div class="collapse" id="{{'collapseLaps_' + timerCtrl.lapsDivId}}">
                 <div class="well">
-                    <small id="{{timerCtrl.lapsDivId}}"></small>  
+                    <small id="{{timerCtrl.lapsDivId}}"></small>
                 </div>
-            </div>          
+            </div>
         </div>
     </div>
 </div>
 <button type="button" class="btn btn-success" data-ng-click="timerCtrl.toggleClock()">{{timerCtrl.payButton || '>'}}</button>
-<button type="button" class="btn btn-link" data-ng-click="timerCtrl.stopClock()">Stop</button> 
+<button type="button" class="btn btn-link" data-ng-click="timerCtrl.stopClock()">Stop</button>
 <button type="button" class="btn btn-link" data-ng-click="timerCtrl.resetClock()">Reset</button>
 <button type="button" class="btn btn-link" data-ng-click="timerCtrl.deleteClock()">Delete</button>

@@ -1,4 +1,4 @@
-<form class="form-horizontal" id="newTimer" ng-show="isNewFormVisible || 0">
+<form class="form-horizontal" id="newTimer" ng-show="newTimerFormCtrl.isNewFormVisible" ng-init="newTimerFormCtrl.isNewFormVisible=false">
     <div class="form-group">
         <label>Project</label>
         <input class="form-control" type="text" ng-model="newTimerFormCtrl.project" required ng-trim="true" ng-init="newTimerFormCtrl.project=''"/>

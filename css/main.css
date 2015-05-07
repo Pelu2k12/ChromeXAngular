@@ -3,21 +3,21 @@ body {
 }
 
 #popup {
-  min-width: 500px;
-  width: 500px;
-  min-height: 10px;
-  height: 300px;
-  margin: 12px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    min-width: 500px;
+    width: 500px;
+    min-height: 10px;
+    height: 300px;
+    margin: 15px 3px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .timer-container {
     border-radius: 3px;
-    margin:1px; 
-    padding:1px; 
+    margin: 1px;
+    padding: 1px;
     background-color: #ddd;
 }
 
@@ -25,4 +25,3 @@ body {
     max-height: 70px;
     overflow-x: auto;
 }
-

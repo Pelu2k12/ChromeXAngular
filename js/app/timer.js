@@ -17,12 +17,12 @@
                     var lapId = _controller.lapsDivId + "_" + _lapCounterId,
                         parent = document.getElementById(_controller.lapsDivId);
                     _controller[lapId] = converCounterToTime(time);
-                                        
+
                     ng.element(parent).append(
                         $compile("<div>" + _controller[lapId] + "</div>")(scope)
                     );
                     parent.scrollTop = parent.scrollHeight;
-                    
+
                     return lapId;
                 },
                 removeLapNodes = function (){
@@ -30,7 +30,7 @@
                 };
             this.identity = scope.id;
             _controller.lapsDivId = 'laps_' + this.identity;
-            
+
             this.startClock = function (){
                 displayTime();
                 _isClockRunning = $interval(function(){
@@ -42,7 +42,7 @@
                 $interval.cancel(_isClockRunning);
                 createLapNode(_lapCounter - 1);
                 _isClockRunning = false;
-                
+
                 _lapCounter = 1;
                 _lapCounterId++;
             };
@@ -86,7 +86,7 @@
             controller: function ($scope, $element){
                 this.project = $scope.project;
                 this.task = $scope.task;
-                
+
                 var Timer = new TimerPrototype($scope, this);
 
                 this.toggleClock = function (){
