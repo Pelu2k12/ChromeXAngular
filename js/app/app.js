@@ -7,14 +7,6 @@
             debugger
             $scope.isNewFormVisible = !$scope.isNewFormVisible;
             $scope.newTimerFormCtrl.isNewFormVisible = !$scope.newTimerFormCtrl.isNewFormVisible;
-$scope.$apply();
         };
-
-//        this.addTimer = function (){
-//            $scope.counter++;
-//            ng.element(document.getElementById('timerDiv')).append(
-//                $compile("<timer id='"+$scope.counter+"' ></timer>")($scope)
-//            );
-//        };
     }]);
 })(angular);
