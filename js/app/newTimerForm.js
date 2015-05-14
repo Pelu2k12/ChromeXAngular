@@ -6,7 +6,6 @@
             controllerAs: "newTimerFormCtrl",
             controller: function ($scope, $compile, $element){
                 var self = this;
-                debugger
                 $scope.isNewFormVisible = false;
                 // Button click event
                 self.addTimer = function (){
