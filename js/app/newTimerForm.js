@@ -1,5 +1,5 @@
 (function (ng){
-    var myApp = ng.module('newTimerForm', []).directive('newTimerForm', function (){
+    var myApp = ng.module('newTimerForm', ['SqlServiceModule']).directive('newTimerForm', function (){
         return {
             restrict: "E",
             templateUrl: 'directives/newTimerForm.html',

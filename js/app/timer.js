@@ -1,5 +1,5 @@
 (function (ng){
-        var myApp = ng.module('timer', []).directive('timer', ['$interval', '$compile', function ($interval, $compile){
+        var myApp = ng.module('timer', ['SqlServiceModule']).directive('timer', ['$interval', '$compile', function ($interval, $compile){
         var TimerPrototype = function (scope, controller){
             var _counter = 1,
                 _lapCounter = 1,
@@ -83,10 +83,10 @@
                 project: '@',
                 task: '@'
             },
-            controller: function ($scope, $element){
-                this.project = $scope.project;
-                this.task = $scope.task;
-
+            controller: function ($scope, $element, SqlService){
+                var t = SqlService.insert(this.project = $scope.project, this.task = $scope.task);
+                
+                
                 var Timer = new TimerPrototype($scope, this);
 
                 this.toggleClock = function (){
