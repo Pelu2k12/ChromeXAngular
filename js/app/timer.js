@@ -84,9 +84,8 @@
                 task: '@'
             },
             controller: function ($scope, $element, SqlService){
-                var t = SqlService.insert(this.project = $scope.project, this.task = $scope.task);
-                
-                
+                SqlService.insert(this.project = $scope.project, this.task = $scope.task);
+
                 var Timer = new TimerPrototype($scope, this);
 
                 this.toggleClock = function (){
